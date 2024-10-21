@@ -5,7 +5,28 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default [
   {
-    languageOptions: { globals: globals.browser },
+    languageOptions: {
+      // globals.browser,
+      globals: {
+        // Node.js переменные
+        process: 'readonly',
+        __dirname: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+
+        // Webpack переменные
+        __webpack_require__: 'readonly',
+        __webpack_public_path__: 'readonly',
+
+        // Браузерные переменные
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        localStorage: 'readonly',
+        sessionStorage: 'readonly',
+        console: 'readonly',
+      },
+    },
   },
   {
     plugins: { prettier: prettierPlugin },
